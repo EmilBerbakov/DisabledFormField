@@ -15,7 +15,7 @@
         }
       </mat-select>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field disabledAppearance>
       <mat-label>Datepicker 1</mat-label>
       <input matInput [matDatepicker]="picker1" [disabled]="disabledToggleForO1.checked" [required]="requiredToggleForO1.checked">
       <mat-datepicker-toggle matIconSuffix [for]="picker1" />
@@ -44,7 +44,7 @@
         }
       </mat-select>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field disabledAppearance>
       <mat-label>Datepicker 2</mat-label>
       <input matInput [matDatepicker]="picker2" [disabled]="disabledToggleForO2.checked" [required]="requiredToggleForO2.checked">
       <mat-datepicker-toggle matIconSuffix [for]="picker2" />
@@ -73,7 +73,7 @@
         }
       </mat-select>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field disabledAppearance autoFloat>
       <mat-label>Datepicker 3</mat-label>
       <input matInput [matDatepicker]="picker3" [disabled]="disabledToggleForO3.checked" [required]="requiredToggleForO3.checked">
       <mat-datepicker-toggle matIconSuffix [for]="picker3" />
@@ -89,11 +89,11 @@
 
   <span class="row-container no-styling">
     Option 4 - Same as Option 2, but set the placeholder text to something if text is provided (Not quite working yet)
-    <mat-form-field disabledAppearance="" placeHolderText="N/A">
+    <mat-form-field disabledAppearance placeHolderText="N/A">
       <mat-label>Input 3</mat-label>
       <input matInput [disabled]="disabledToggleForO4.checked" [required]="requiredToggleForO4.checked">
     </mat-form-field>
-    <mat-form-field disabledAppearance="" placeHolderText="N/A">
+    <mat-form-field disabledAppearance placeHolderText="N/A">
       <mat-label> Select 3 </mat-label>
       <mat-select [disabled]="disabledToggleForO4.checked" [required]="requiredToggleForO4.checked">
         <mat-option />
@@ -102,9 +102,9 @@
         }
       </mat-select>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field disabledAppearance placeHolderText="N/A">
       <mat-label>Datepicker 4</mat-label>
-      <input matInput [matDatepicker]="picker4" [disabled]="disabledToggleForO4.checked" [required]="requiredToggleForO4.checked">
+      <input matInput [matDatepicker]="picker4" [disabled]="disabledToggleForO4.checked" [required]="requiredToggleForO4.checked" placeholder="placeholder">
       <mat-datepicker-toggle matIconSuffix [for]="picker4" />
       <mat-datepicker #picker4 [disabled]="disabledToggleForO4.checked"/>
     </mat-form-field>

@@ -1,6 +1,6 @@
+/* You can add global styles to this file, and also import other style files */
 @use "@angular/material" as mat;
 @use "sass:map";
-
 @include mat.form-field-density(-1);
 
 html, body {
@@ -22,7 +22,7 @@ body { margin: 1rem; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --mat-select-disabled-arrow-color: rgba(0,0,0,0);
 }
 
-.no-styling > .mat-form-field-appearance-fill {
+.no-styling {
   --mdc-filled-text-field-disabled-container-color: rgba(0,0,0,0);
   --mdc-filled-text-field-disabled-active-indicator-color: rgba(0,0,0,0);
 }

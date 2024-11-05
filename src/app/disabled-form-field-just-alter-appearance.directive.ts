@@ -46,6 +46,7 @@ export class DisabledFormFieldJustAlterAppearanceDirective implements AfterViewI
     .subscribe(appearance => {
       this.appearance.set(appearance);
       this.originalPlaceholder = this.formFieldInput()?.placeholder ?? ''
+      this.cdr.detectChanges();
       console.log(this.originalPlaceholder)
     })
   }
