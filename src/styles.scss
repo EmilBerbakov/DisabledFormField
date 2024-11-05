@@ -1,4 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+@use "sass:map";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@include mat.form-field-density(-1);
+
+html, body {
+  height: 100%;
+  --mdc-outlined-text-field-label-text-color: rgba(0, 0, 0, 0.72);
+  --mdc-outlined-text-field-hover-label-text-color: rgba(0, 0, 0, 0.72);
+  --mdc-outlined-text-field-disabled-label-text-color: rgba(0, 0, 0, 0.53);
+  --mdc-outlined-text-field-disabled-hover-label-text-color: rgba(0, 0, 0, 0.53);
+
+  --mdc-filled-text-field-disabled-label-text-color: rgba(0, 0, 0, 0.72);
+  --mdc-filled-text-field-disabled-input-text-color: rgba(0, 0, 0, 0.72);
+}
+body { margin: 1rem; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+.mat-mdc-select-disabled {
+  --mat-select-disabled-trigger-text-color: rgba(0, 0, 0, 0.72);
+  --mat-select-disabled-arrow-color: rgba(0,0,0,0);
+}
+
+.no-styling > .mat-form-field-appearance-fill {
+  --mdc-filled-text-field-disabled-container-color: rgba(0,0,0,0);
+  --mdc-filled-text-field-disabled-active-indicator-color: rgba(0,0,0,0);
+}
+
+.row-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0 1rem;
+}
+
+.column-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem 0;
+}
