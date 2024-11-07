@@ -31,8 +31,8 @@ export class DisabledFormFieldJustAlterAppearanceDirective implements AfterViewI
         if (autoFloat) {
           this.matFormField.floatLabel = appearance === 'fill' ? 'auto': 'always'
         }
-                // In the real implementation, this would not be hidden behind an if flag
-        if (disabledHintText) {
+        // In the real implementation, this would only be hidden behind the empty value flag
+        if (disabledHintText && !this.formFieldInput()?.value) {
           this.matFormField.hintLabel = appearance === 'fill' ? disabledHintText : this.originalHintText;
         }
         this.cdr.detectChanges();
@@ -42,7 +42,7 @@ export class DisabledFormFieldJustAlterAppearanceDirective implements AfterViewI
 
   ngAfterViewInit(): void {
     this.formFieldInput()!.stateChanges.pipe(startWith('This value does not matter as long as it is not null!'), map(() => this.formFieldInput()!.disabled ? 'fill' : 'outline'), takeUntilDestroyed(this.destroyRef))
-    .subscribe(appearance => {
+    .subscribe((appearance: MatFormFieldAppearance) => {
       this.appearance.set(appearance);
       this.cdr.detectChanges();
     })

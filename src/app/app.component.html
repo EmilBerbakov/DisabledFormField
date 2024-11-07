@@ -90,11 +90,11 @@
   <span class="row-container no-styling">
     Option 4 - Same as Option 2, but set hint text to a default value or custom value when disabled
     <mat-form-field disabledAppearance disabledHintText="No Data">
-      <mat-label>Input 3</mat-label>
+      <mat-label>Input 4</mat-label>
       <input matInput [disabled]="disabledToggleForO4.checked" [required]="requiredToggleForO4.checked">
     </mat-form-field>
     <mat-form-field disabledAppearance disabledHintText="No Data">
-      <mat-label> Select 3 </mat-label>
+      <mat-label> Select 4 </mat-label>
       <mat-select [disabled]="disabledToggleForO4.checked" [required]="requiredToggleForO4.checked">
         <mat-option />
         @for (option of options; track option.value) {
@@ -115,6 +115,37 @@
       <mat-slide-toggle #requiredToggleForO4 /> {{ requiredToggleForO4.checked ? 'Required': 'Optional' }}
     </span>
   </span>
+
+  <span class="row-container no-styling">
+    Option 5 - Combining options 3 and 4
+    <mat-form-field disabledAppearance disabledHintText="No Data" autoFloat>
+      <mat-label>Input 5</mat-label>
+      <input matInput [disabled]="disabledToggleForO5.checked" [required]="requiredToggleForO5.checked">
+    </mat-form-field>
+    <mat-form-field disabledAppearance disabledHintText="No Data" autoFloat>
+      <mat-label> Select 5 </mat-label>
+      <mat-select [disabled]="disabledToggleForO5.checked" [required]="requiredToggleForO5.checked">
+        <mat-option />
+        @for (option of options; track option.value) {
+          <mat-option [value]="option.value"> {{ option.label }} </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field disabledAppearance disabledHintText="disabled hint text" hintLabel="enabled hint text" autoFloat>
+      <mat-label>Datepicker 5</mat-label>
+      <input matInput [matDatepicker]="picker5" [disabled]="disabledToggleForO5.checked" [required]="requiredToggleForO5.checked">
+      <mat-datepicker-toggle matIconSuffix [for]="picker5" />
+      <mat-datepicker #picker5 [disabled]="disabledToggleForO5.checked"/>
+    </mat-form-field>
+    <span>
+      <mat-slide-toggle #disabledToggleForO5 checked /> {{ disabledToggleForO5.checked ? 'Disabled': 'Enabled' }}
+    </span>
+    <span>
+      <mat-slide-toggle #requiredToggleForO5 /> {{ requiredToggleForO5.checked ? 'Required': 'Optional' }}
+    </span>
+  </span>
+
+
 
 </span>
 
