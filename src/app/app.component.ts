@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatDividerModule} from '@angular/material/divider';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -18,14 +19,15 @@ import { MatNativeDateModule } from '@angular/material/core';
             MatSelectModule,
             DisabledFormFieldJustAlterAppearanceDirective,
             MatDatepickerModule,
-            MatNativeDateModule
+            MatNativeDateModule,
+            MatDividerModule
           ],
   providers: [
   {
     provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
     useValue: {
       appearance: 'outline',
-      subscriptSizing: 'dynamic',
+      subscriptSizing: 'static',
       floatLabel: 'always'
       }
   }
