@@ -8,32 +8,32 @@ import { map, startWith } from 'rxjs/operators';
   standalone: true,
 })
 export class DisabledFormFieldJustAlterAppearanceDirective implements AfterViewInit {
-
-  //disabledAppearance = input(false, { transform: booleanAttribute });
-  autoFloat = input(false, { transform: booleanAttribute })
-  placeHolderText = input('');
+  //In the real implementation, this input wouldn't exist and would just be something that happens in the effect
+  autoFloat = input(false, { transform: booleanAttribute });
+  //In the real implementation, if this went through, this would have a default value
+  disabledHintText = input('');
   private matFormField = inject(MatFormField, { self: true });
   cdr = inject(ChangeDetectorRef);
   destroyRef = inject(DestroyRef);
   formFieldInput = contentChild(MatFormFieldControl);
   appearance: WritableSignal<MatFormFieldAppearance> = signal('fill');
-  originalPlaceholder = '';
+  originalHintText = this.matFormField.hintLabel;
 
   constructor() {
     effect(() => {
       if (this.matFormField) {
-        this.matFormField.appearance = this.appearance();
-        this.matFormField.hideRequiredMarker = this.appearance() === 'fill'
+        const appearance = this.appearance();
         const autoFloat = untracked(this.autoFloat);
-        const placeHolderText = untracked(this.placeHolderText);
+        const disabledHintText = untracked(this.disabledHintText);
+        this.matFormField.appearance = appearance;
+        this.matFormField.hideRequiredMarker = appearance === 'fill'
+        // In the real implementation, this would not be hidden behind an if flag
         if (autoFloat) {
-          this.matFormField.floatLabel = this.appearance() === 'fill' ? 'auto': 'always'
+          this.matFormField.floatLabel = appearance === 'fill' ? 'auto': 'always'
         }
-        //Not Quite Working yet
-        if (placeHolderText) {
-          this.appearance() === 'fill' ?
-          this.formFieldInput()?.placeholder?.replace(this.formFieldInput()?.placeholder ?? '', placeHolderText):
-          this.formFieldInput()?.placeholder?.replace(this.formFieldInput()?.placeholder ?? '', this.originalPlaceholder)
+                // In the real implementation, this would not be hidden behind an if flag
+        if (disabledHintText) {
+          this.matFormField.hintLabel = appearance === 'fill' ? disabledHintText : this.originalHintText;
         }
         this.cdr.detectChanges();
       }
@@ -41,13 +41,10 @@ export class DisabledFormFieldJustAlterAppearanceDirective implements AfterViewI
   }
 
   ngAfterViewInit(): void {
-
     this.formFieldInput()!.stateChanges.pipe(startWith('This value does not matter as long as it is not null!'), map(() => this.formFieldInput()!.disabled ? 'fill' : 'outline'), takeUntilDestroyed(this.destroyRef))
     .subscribe(appearance => {
       this.appearance.set(appearance);
-      this.originalPlaceholder = this.formFieldInput()?.placeholder ?? ''
       this.cdr.detectChanges();
-      console.log(this.originalPlaceholder)
     })
   }
 }

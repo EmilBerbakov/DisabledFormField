@@ -88,12 +88,12 @@
   </span>
 
   <span class="row-container no-styling">
-    Option 4 - Same as Option 2, but set the placeholder text to something if text is provided (Not quite working yet)
-    <mat-form-field disabledAppearance placeHolderText="N/A">
+    Option 4 - Same as Option 2, but set hint text to a default value or custom value when disabled
+    <mat-form-field disabledAppearance disabledHintText="No Data">
       <mat-label>Input 3</mat-label>
       <input matInput [disabled]="disabledToggleForO4.checked" [required]="requiredToggleForO4.checked">
     </mat-form-field>
-    <mat-form-field disabledAppearance placeHolderText="N/A">
+    <mat-form-field disabledAppearance disabledHintText="No Data">
       <mat-label> Select 3 </mat-label>
       <mat-select [disabled]="disabledToggleForO4.checked" [required]="requiredToggleForO4.checked">
         <mat-option />
@@ -102,14 +102,14 @@
         }
       </mat-select>
     </mat-form-field>
-    <mat-form-field disabledAppearance placeHolderText="N/A">
+    <mat-form-field disabledAppearance disabledHintText="disabled hint text" hintLabel="enabled hint text">
       <mat-label>Datepicker 4</mat-label>
-      <input matInput [matDatepicker]="picker4" [disabled]="disabledToggleForO4.checked" [required]="requiredToggleForO4.checked" placeholder="placeholder">
+      <input matInput [matDatepicker]="picker4" [disabled]="disabledToggleForO4.checked" [required]="requiredToggleForO4.checked">
       <mat-datepicker-toggle matIconSuffix [for]="picker4" />
       <mat-datepicker #picker4 [disabled]="disabledToggleForO4.checked"/>
     </mat-form-field>
     <span>
-      <mat-slide-toggle #disabledToggleForO4 /> {{ disabledToggleForO4.checked ? 'Disabled': 'Enabled' }}
+      <mat-slide-toggle #disabledToggleForO4 checked /> {{ disabledToggleForO4.checked ? 'Disabled': 'Enabled' }}
     </span>
     <span>
       <mat-slide-toggle #requiredToggleForO4 /> {{ requiredToggleForO4.checked ? 'Required': 'Optional' }}

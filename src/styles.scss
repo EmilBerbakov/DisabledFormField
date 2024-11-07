@@ -7,18 +7,15 @@ html, body {
   height: 100%;
   --mdc-outlined-text-field-label-text-color: rgba(0, 0, 0, 0.72);
   --mdc-outlined-text-field-hover-label-text-color: rgba(0, 0, 0, 0.72);
-  --mdc-outlined-text-field-disabled-label-text-color: rgba(0, 0, 0, 0.53);
-  --mdc-outlined-text-field-disabled-hover-label-text-color: rgba(0, 0, 0, 0.53);
-
-  --mdc-filled-text-field-disabled-label-text-color: rgba(0, 0, 0, 0.72);
-  --mdc-filled-text-field-disabled-input-text-color: rgba(0, 0, 0, 0.72);
+  --mdc-filled-text-field-disabled-label-text-color:  --mdc-outlined-text-field-hover-label-text-color;
+  --mdc-filled-text-field-disabled-input-text-color: --mdc-outlined-text-field-input-text-color;
 }
 body { margin: 1rem; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 
 .mat-mdc-select-disabled {
-  --mat-select-disabled-trigger-text-color: rgba(0, 0, 0, 0.72);
+  --mat-select-disabled-trigger-text-color: --mdc-outlined-text-field-input-text-color;
   --mat-select-disabled-arrow-color: rgba(0,0,0,0);
 }
 
