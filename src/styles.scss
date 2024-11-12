@@ -9,12 +9,11 @@ html, body {
   --mdc-outlined-text-field-hover-label-text-color: rgba(0, 0, 0, 0.72);
   --mdc-filled-text-field-disabled-label-text-color:  --mdc-outlined-text-field-hover-label-text-color;
   --mdc-filled-text-field-disabled-input-text-color: --mdc-outlined-text-field-input-text-color;
+
 }
 body { margin: 1rem; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-
-
-.mat-mdc-select-disabled {
+.mat-form-field-appearance-fill {
   --mat-select-disabled-trigger-text-color: --mdc-outlined-text-field-input-text-color;
   --mat-select-disabled-arrow-color: rgba(0,0,0,0);
 }

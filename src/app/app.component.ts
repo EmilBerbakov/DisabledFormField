@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, viewChild } from '@angular/core';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
 import { RouterOutlet } from '@angular/router';
 import { DisabledFormFieldJustAlterAppearanceDirective } from './disabled-form-field-just-alter-appearance.directive';
@@ -10,7 +10,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatDividerModule} from '@angular/material/divider';
 import { DisabledFormFieldFinalDirective } from './disabled-form-field-final.directive';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatExpansionModule } from '@angular/material/expansion';
+import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
+import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -26,7 +27,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
             MatNativeDateModule,
             MatDividerModule,
             ReactiveFormsModule,
-            MatExpansionModule
+            MatExpansionModule,
+            MatButtonModule
           ],
   providers: [
   {
@@ -59,6 +61,8 @@ export class AppComponent {
     { label: 'Option 3', value: 'Option 3' },
     { label: 'Option 4', value: 'Option 4' },
   ]
+
+  accordion = viewChild.required(MatAccordion);
 
   enabledOrDisabled(event: MatSlideToggleChange): void {
     event.checked ? this.formGroup.disable() : this.formGroup.enable();

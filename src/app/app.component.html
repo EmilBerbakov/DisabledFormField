@@ -1,5 +1,45 @@
 <h3>Alternatives to Display Disabled / Read-Only Text in Material Form Fields</h3>
-<mat-accordion>
+<div class="row-container">
+  <button mat-flat-button (click)="accordion().openAll()" color="primary">Expand All</button>
+  <button mat-flat-button (click)="accordion().closeAll()" color="warn">Close All</button>
+</div>
+<mat-accordion multi>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Default Option</mat-panel-title>
+    </mat-expansion-panel-header>
+    <span class="row-container">
+      <mat-form-field>
+        <mat-label>Input Base</mat-label>
+        <input matInput [disabled]="disabledToggleForBase.checked" [required]="requiredToggleForBase.checked">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label> Select Base </mat-label>
+        <mat-select [disabled]="disabledToggleForBase.checked" [required]="requiredToggleForBase.checked">
+          <mat-option />
+          @for (option of options; track option.value) {
+            <mat-option [value]="option.value"> {{ option.label }} </mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Datepicker Base</mat-label>
+        <input matInput [matDatepicker]="pickerBase" [disabled]="disabledToggleForBase.checked" [required]="requiredToggleForBase.checked">
+        <mat-datepicker-toggle matIconSuffix [for]="pickerBase" />
+        <mat-datepicker #pickerBase [disabled]="disabledToggleForBase.checked"/>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Text Area Base</mat-label>
+        <textarea matInput [disabled]="disabledToggleForBase.checked" [required]="requiredToggleForBase.checked"></textarea>
+      </mat-form-field>
+      <span>
+        <mat-slide-toggle #disabledToggleForBase /> {{ disabledToggleForBase.checked ? 'Disabled': 'Enabled' }}
+      </span>
+      <span>
+        <mat-slide-toggle #requiredToggleForBase /> {{ requiredToggleForBase.checked ? 'Required': 'Optional' }}
+      </span>
+    </span>
+  </mat-expansion-panel>
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>Option 1- Just switch appearance from Outline when enabled to Fill when disabled</mat-panel-title>
@@ -233,6 +273,7 @@
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>Option 7 - Option 6 but using reactive forms</mat-panel-title>
+        <mat-panel-description>Preferred</mat-panel-description>
       </mat-expansion-panel-header>
       <span class="row-container no-styling">
         <form [formGroup]="formGroup" class="row-container">
