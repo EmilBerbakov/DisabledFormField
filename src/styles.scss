@@ -22,11 +22,13 @@ body { margin: 1rem; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .no-styling {
   --mdc-filled-text-field-disabled-container-color: rgba(0,0,0,0);
   --mdc-filled-text-field-disabled-active-indicator-color: rgba(0,0,0,0);
+  --mdc-icon-button-disabled-icon-color: rgba(0,0,0,0);
 }
 
 .row-container {
   display: flex;
   flex-direction: row;
+  align-items: start;
   gap: 0 1rem;
 }
 
