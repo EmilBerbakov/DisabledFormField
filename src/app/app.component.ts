@@ -13,36 +13,35 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-            RouterOutlet,
-            MatFormFieldModule,
-            MatInputModule,
-            MatSlideToggleModule,
-            MatSelectModule,
-            DisabledFormFieldJustAlterAppearanceDirective,
-            DisabledFormFieldFinalDirective,
-            MatDatepickerModule,
-            MatNativeDateModule,
-            MatDividerModule,
-            ReactiveFormsModule,
-            MatExpansionModule,
-            MatButtonModule
-          ],
-  providers: [
-  {
-    provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
-    useValue: {
-      appearance: 'outline',
-      subscriptSizing: 'dynamic',
-      floatLabel: 'always'
-      }
-  }
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    imports: [
+        RouterOutlet,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSlideToggleModule,
+        MatSelectModule,
+        DisabledFormFieldJustAlterAppearanceDirective,
+        DisabledFormFieldFinalDirective,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatDividerModule,
+        ReactiveFormsModule,
+        MatExpansionModule,
+        MatButtonModule
+    ],
+    providers: [
+        {
+            provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+            useValue: {
+                appearance: 'outline',
+                subscriptSizing: 'dynamic',
+                floatLabel: 'always'
+            }
+        }
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss'
 })
 export class AppComponent {
 
